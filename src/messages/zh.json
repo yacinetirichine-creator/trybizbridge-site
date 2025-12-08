@@ -1,0 +1,79 @@
+{
+  "nav": {
+    "home": "首页",
+    "how_it_works": "如何运作",
+    "pricing": "价格",
+    "contact": "联系我们",
+    "login": "登录",
+    "signup": "注册",
+    "open_app": "打开应用"
+  },
+  "hero": {
+    "title": "连接业务开发人员与企业",
+    "subtitle": "BizBridge是一个B2B平台，将业务开发人员与寻找新客户的企业联系起来。",
+    "cta_start": "免费开始",
+    "cta_demo": "查看演示"
+  },
+  "features": {
+    "title": "为什么选择BizBridge？",
+    "feature1_title": "优质线索",
+    "feature1_desc": "获取经过验证且与您行业相关的机会。",
+    "feature2_title": "透明佣金",
+    "feature2_desc": "自由设定您的佣金。双方之间安全支付。",
+    "feature3_title": "自动化合同",
+    "feature3_desc": "自动生成合同，集成电子签名。",
+    "feature4_title": "内置消息",
+    "feature4_desc": "在平台上直接与您的合作伙伴沟通。"
+  },
+  "how": {
+    "title": "如何运作？",
+    "for_developers": "业务开发人员",
+    "for_companies": "企业",
+    "step1_dev": "免费创建您的账户",
+    "step2_dev": "发布您的线索并设定佣金",
+    "step3_dev": "接收企业的提案",
+    "step4_dev": "选择企业并签署合同",
+    "step1_comp": "注册并激活您的订阅",
+    "step2_comp": "浏览可用线索",
+    "step3_comp": "发送您的提案",
+    "step4_comp": "完成交易并支付佣金"
+  },
+  "pricing": {
+    "title": "简单透明的定价",
+    "free": "免费",
+    "free_desc": "适用于业务开发人员",
+    "free_feature1": "无限创建线索",
+    "free_feature2": "内置消息",
+    "free_feature3": "自动化合同",
+    "free_feature4": "自由佣金",
+    "pro": "$20 / 年",
+    "pro_desc": "适用于企业",
+    "pro_feature1": "访问所有线索",
+    "pro_feature2": "无限回复",
+    "pro_feature3": "内置消息",
+    "pro_feature4": "优先支持"
+  },
+  "cta": {
+    "title": "准备好发展您的业务了吗？",
+    "subtitle": "加入BizBridge上成千上万的开发人员和企业。",
+    "button": "创建我的免费账户"
+  },
+  "footer": {
+    "description": "连接业务开发人员和企业的B2B平台。",
+    "links": "有用链接",
+    "legal": "法律声明",
+    "privacy": "隐私政策",
+    "terms": "服务条款",
+    "contact": "联系我们",
+    "rights": "版权所有。"
+  },
+  "contact": {
+    "title": "联系我们",
+    "subtitle": "有问题？我们的团队会快速回复。",
+    "name": "您的姓名",
+    "email": "您的邮箱",
+    "message": "您的消息",
+    "send": "发送",
+    "or_chat": "或与我们的AI助手聊天"
+  }
+}

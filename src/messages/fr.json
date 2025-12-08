@@ -1,0 +1,79 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "how_it_works": "Comment ça marche",
+    "pricing": "Tarifs",
+    "contact": "Contact",
+    "login": "Connexion",
+    "signup": "S'inscrire",
+    "open_app": "Ouvrir l'application"
+  },
+  "hero": {
+    "title": "Connectez apporteurs d'affaires et entreprises",
+    "subtitle": "BizBridge est la plateforme B2B qui met en relation les apporteurs d'affaires avec les entreprises à la recherche de nouveaux clients.",
+    "cta_start": "Commencer gratuitement",
+    "cta_demo": "Voir la démo"
+  },
+  "features": {
+    "title": "Pourquoi choisir BizBridge ?",
+    "feature1_title": "Leads qualifiés",
+    "feature1_desc": "Recevez des opportunités vérifiées et pertinentes pour votre secteur d'activité.",
+    "feature2_title": "Commissions transparentes",
+    "feature2_desc": "Définissez vos commissions librement. Paiements sécurisés entre parties.",
+    "feature3_title": "Contrats automatisés",
+    "feature3_desc": "Génération automatique de contrats et signatures électroniques intégrées.",
+    "feature4_title": "Messagerie intégrée",
+    "feature4_desc": "Communiquez directement avec vos partenaires sur la plateforme."
+  },
+  "how": {
+    "title": "Comment ça marche ?",
+    "for_developers": "Pour les Apporteurs d'affaires",
+    "for_companies": "Pour les Entreprises",
+    "step1_dev": "Créez votre compte gratuitement",
+    "step2_dev": "Publiez vos leads avec la commission souhaitée",
+    "step3_dev": "Recevez les propositions des entreprises",
+    "step4_dev": "Sélectionnez l'entreprise et signez le contrat",
+    "step1_comp": "Inscrivez-vous et activez votre abonnement",
+    "step2_comp": "Parcourez les leads disponibles",
+    "step3_comp": "Envoyez vos propositions",
+    "step4_comp": "Concluez l'affaire et payez la commission"
+  },
+  "pricing": {
+    "title": "Tarifs simples et transparents",
+    "free": "Gratuit",
+    "free_desc": "Pour les apporteurs d'affaires",
+    "free_feature1": "Création de leads illimitée",
+    "free_feature2": "Messagerie intégrée",
+    "free_feature3": "Contrats automatisés",
+    "free_feature4": "Commissions libres",
+    "pro": "20$ / an",
+    "pro_desc": "Pour les entreprises",
+    "pro_feature1": "Accès à tous les leads",
+    "pro_feature2": "Réponses illimitées",
+    "pro_feature3": "Messagerie intégrée",
+    "pro_feature4": "Support prioritaire"
+  },
+  "cta": {
+    "title": "Prêt à développer votre business ?",
+    "subtitle": "Rejoignez des milliers d'apporteurs et d'entreprises sur BizBridge.",
+    "button": "Créer mon compte gratuit"
+  },
+  "footer": {
+    "description": "La plateforme B2B qui connecte apporteurs d'affaires et entreprises.",
+    "links": "Liens utiles",
+    "legal": "Mentions légales",
+    "privacy": "Politique de confidentialité",
+    "terms": "CGU",
+    "contact": "Contact",
+    "rights": "Tous droits réservés."
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "subtitle": "Une question ? Notre équipe vous répond rapidement.",
+    "name": "Votre nom",
+    "email": "Votre email",
+    "message": "Votre message",
+    "send": "Envoyer",
+    "or_chat": "Ou discutez avec notre assistant IA"
+  }
+}

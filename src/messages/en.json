@@ -1,0 +1,79 @@
+{
+  "nav": {
+    "home": "Home",
+    "how_it_works": "How it works",
+    "pricing": "Pricing",
+    "contact": "Contact",
+    "login": "Login",
+    "signup": "Sign up",
+    "open_app": "Open App"
+  },
+  "hero": {
+    "title": "Connect business developers and companies",
+    "subtitle": "BizBridge is the B2B platform that connects business developers with companies looking for new clients.",
+    "cta_start": "Start for free",
+    "cta_demo": "See demo"
+  },
+  "features": {
+    "title": "Why choose BizBridge?",
+    "feature1_title": "Qualified leads",
+    "feature1_desc": "Receive verified and relevant opportunities for your industry.",
+    "feature2_title": "Transparent commissions",
+    "feature2_desc": "Set your commissions freely. Secure payments between parties.",
+    "feature3_title": "Automated contracts",
+    "feature3_desc": "Automatic contract generation with integrated electronic signatures.",
+    "feature4_title": "Built-in messaging",
+    "feature4_desc": "Communicate directly with your partners on the platform."
+  },
+  "how": {
+    "title": "How does it work?",
+    "for_developers": "For Business Developers",
+    "for_companies": "For Companies",
+    "step1_dev": "Create your free account",
+    "step2_dev": "Publish your leads with desired commission",
+    "step3_dev": "Receive proposals from companies",
+    "step4_dev": "Select the company and sign the contract",
+    "step1_comp": "Sign up and activate your subscription",
+    "step2_comp": "Browse available leads",
+    "step3_comp": "Send your proposals",
+    "step4_comp": "Close the deal and pay the commission"
+  },
+  "pricing": {
+    "title": "Simple and transparent pricing",
+    "free": "Free",
+    "free_desc": "For business developers",
+    "free_feature1": "Unlimited lead creation",
+    "free_feature2": "Built-in messaging",
+    "free_feature3": "Automated contracts",
+    "free_feature4": "Free commissions",
+    "pro": "$20 / year",
+    "pro_desc": "For companies",
+    "pro_feature1": "Access to all leads",
+    "pro_feature2": "Unlimited responses",
+    "pro_feature3": "Built-in messaging",
+    "pro_feature4": "Priority support"
+  },
+  "cta": {
+    "title": "Ready to grow your business?",
+    "subtitle": "Join thousands of developers and companies on BizBridge.",
+    "button": "Create my free account"
+  },
+  "footer": {
+    "description": "The B2B platform connecting business developers and companies.",
+    "links": "Useful links",
+    "legal": "Legal notice",
+    "privacy": "Privacy policy",
+    "terms": "Terms of service",
+    "contact": "Contact",
+    "rights": "All rights reserved."
+  },
+  "contact": {
+    "title": "Contact us",
+    "subtitle": "Have a question? Our team responds quickly.",
+    "name": "Your name",
+    "email": "Your email",
+    "message": "Your message",
+    "send": "Send",
+    "or_chat": "Or chat with our AI assistant"
+  }
+}
