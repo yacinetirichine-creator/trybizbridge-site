@@ -24,7 +24,7 @@ export default function HomePage() {
     router.push(`/${newLocale}`);
   };
 
-  const appUrl = 'https://biz-brigde-jind-git-main-yacine-tirichines-projects.vercel.app';
+  const appUrl = 'https://app.trybizbridge.com';
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-emerald-50 to-white">
