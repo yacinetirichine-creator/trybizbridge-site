@@ -11,8 +11,8 @@
   "hero": {
     "title": "Connect business developers and companies",
     "subtitle": "BizBridge is the B2B platform that connects business developers with companies looking for new clients.",
-    "cta_start": "Start for free",
-    "cta_demo": "See demo"
+    "cta_start": "Get started now",
+    "cta_demo": "See how it works"
   },
   "features": {
     "title": "Why choose BizBridge?",
@@ -29,7 +29,7 @@
     "title": "How does it work?",
     "for_developers": "For Business Developers",
     "for_companies": "For Companies",
-    "step1_dev": "Create your free account",
+    "step1_dev": "Create your account and activate your subscription",
     "step2_dev": "Publish your leads with desired commission",
     "step3_dev": "Receive proposals from companies",
     "step4_dev": "Select the company and sign the contract",
@@ -40,12 +40,12 @@
   },
   "pricing": {
     "title": "Simple and transparent pricing",
-    "free": "Free",
-    "free_desc": "For business developers",
-    "free_feature1": "Unlimited lead creation",
-    "free_feature2": "Built-in messaging",
-    "free_feature3": "Automated contracts",
-    "free_feature4": "Free commissions",
+    "apporteur": "€10 / year",
+    "apporteur_desc": "For business developers",
+    "apporteur_feature1": "Unlimited lead creation",
+    "apporteur_feature2": "Built-in messaging",
+    "apporteur_feature3": "Automated contracts",
+    "apporteur_feature4": "Free commissions",
     "pro": "$20 / year",
     "pro_desc": "For companies",
     "pro_feature1": "Access to all leads",
@@ -56,7 +56,7 @@
   "cta": {
     "title": "Ready to grow your business?",
     "subtitle": "Join thousands of developers and companies on BizBridge.",
-    "button": "Create my free account"
+    "button": "Create my account"
   },
   "footer": {
     "description": "The B2B platform connecting business developers and companies.",

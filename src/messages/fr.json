@@ -11,8 +11,8 @@
   "hero": {
     "title": "Connectez apporteurs d'affaires et entreprises",
     "subtitle": "BizBridge est la plateforme B2B qui met en relation les apporteurs d'affaires avec les entreprises à la recherche de nouveaux clients.",
-    "cta_start": "Commencer gratuitement",
-    "cta_demo": "Voir la démo"
+    "cta_start": "Commencer maintenant",
+    "cta_demo": "Voir comment ça marche"
   },
   "features": {
     "title": "Pourquoi choisir BizBridge ?",
@@ -29,7 +29,7 @@
     "title": "Comment ça marche ?",
     "for_developers": "Pour les Apporteurs d'affaires",
     "for_companies": "Pour les Entreprises",
-    "step1_dev": "Créez votre compte gratuitement",
+    "step1_dev": "Créez votre compte et activez votre abonnement",
     "step2_dev": "Publiez vos leads avec la commission souhaitée",
     "step3_dev": "Recevez les propositions des entreprises",
     "step4_dev": "Sélectionnez l'entreprise et signez le contrat",
@@ -40,12 +40,12 @@
   },
   "pricing": {
     "title": "Tarifs simples et transparents",
-    "free": "Gratuit",
-    "free_desc": "Pour les apporteurs d'affaires",
-    "free_feature1": "Création de leads illimitée",
-    "free_feature2": "Messagerie intégrée",
-    "free_feature3": "Contrats automatisés",
-    "free_feature4": "Commissions libres",
+    "apporteur": "10€ / an",
+    "apporteur_desc": "Pour les apporteurs d'affaires",
+    "apporteur_feature1": "Création de leads illimitée",
+    "apporteur_feature2": "Messagerie intégrée",
+    "apporteur_feature3": "Contrats automatisés",
+    "apporteur_feature4": "Commissions libres",
     "pro": "20$ / an",
     "pro_desc": "Pour les entreprises",
     "pro_feature1": "Accès à tous les leads",
@@ -56,7 +56,7 @@
   "cta": {
     "title": "Prêt à développer votre business ?",
     "subtitle": "Rejoignez des milliers d'apporteurs et d'entreprises sur BizBridge.",
-    "button": "Créer mon compte gratuit"
+    "button": "Créer mon compte"
   },
   "footer": {
     "description": "La plateforme B2B qui connecte apporteurs d'affaires et entreprises.",

@@ -13,6 +13,7 @@ import {
   Globe
 } from 'lucide-react';
 import { useParams, useRouter } from 'next/navigation';
+import ChatBot from '../../components/ChatBot';
 
 export default function HomePage() {
   const t = useTranslations();
@@ -192,12 +193,12 @@ export default function HomePage() {
             {t('pricing.title')}
           </h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* Free Plan */}
-            <div className="p-8 bg-gray-50 rounded-2xl border-2 border-gray-200">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">{t('pricing.free')}</h3>
-              <p className="text-gray-600 mb-6">{t('pricing.free_desc')}</p>
+            {/* Apporteur Plan */}
+            <div className="p-8 bg-emerald-50 rounded-2xl border-2 border-emerald-200">
+              <h3 className="text-3xl font-bold text-emerald-600 mb-2">{t('pricing.apporteur')}</h3>
+              <p className="text-gray-600 mb-6">{t('pricing.apporteur_desc')}</p>
               <div className="space-y-3 mb-8">
-                {[t('pricing.free_feature1'), t('pricing.free_feature2'), t('pricing.free_feature3'), t('pricing.free_feature4')].map((feature, index) => (
+                {[t('pricing.apporteur_feature1'), t('pricing.apporteur_feature2'), t('pricing.apporteur_feature3'), t('pricing.apporteur_feature4')].map((feature, index) => (
                   <div key={index} className="flex items-center gap-2">
                     <CheckCircle className="w-5 h-5 text-emerald-600" />
                     <span className="text-gray-700">{feature}</span>
@@ -207,31 +208,31 @@ export default function HomePage() {
               <a 
                 href={appUrl}
                 target="_blank"
-                className="block w-full py-3 text-center bg-gray-200 text-gray-800 rounded-xl font-semibold hover:bg-gray-300 transition"
+                className="block w-full py-3 text-center bg-emerald-600 text-white rounded-xl font-semibold hover:bg-emerald-700 transition"
               >
                 {t('hero.cta_start')}
               </a>
             </div>
 
             {/* Pro Plan */}
-            <div className="p-8 bg-emerald-600 rounded-2xl text-white relative overflow-hidden">
+            <div className="p-8 bg-gray-900 rounded-2xl text-white relative overflow-hidden">
               <div className="absolute top-4 right-4 bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1 rounded-full">
                 POPULAR
               </div>
-              <h3 className="text-2xl font-bold mb-2">{t('pricing.pro')}</h3>
-              <p className="text-emerald-100 mb-6">{t('pricing.pro_desc')}</p>
+              <h3 className="text-3xl font-bold mb-2">{t('pricing.pro')}</h3>
+              <p className="text-gray-400 mb-6">{t('pricing.pro_desc')}</p>
               <div className="space-y-3 mb-8">
                 {[t('pricing.pro_feature1'), t('pricing.pro_feature2'), t('pricing.pro_feature3'), t('pricing.pro_feature4')].map((feature, index) => (
                   <div key={index} className="flex items-center gap-2">
-                    <CheckCircle className="w-5 h-5 text-emerald-200" />
-                    <span className="text-emerald-50">{feature}</span>
+                    <CheckCircle className="w-5 h-5 text-emerald-400" />
+                    <span className="text-gray-300">{feature}</span>
                   </div>
                 ))}
               </div>
               <a 
                 href={appUrl}
                 target="_blank"
-                className="block w-full py-3 text-center bg-white text-emerald-600 rounded-xl font-semibold hover:bg-emerald-50 transition"
+                className="block w-full py-3 text-center bg-emerald-600 text-white rounded-xl font-semibold hover:bg-emerald-700 transition"
               >
                 {t('hero.cta_start')}
               </a>
@@ -298,6 +299,9 @@ export default function HomePage() {
           </div>
         </div>
       </footer>
+
+      {/* ChatBot */}
+      <ChatBot locale={locale} />
     </div>
   );
 }

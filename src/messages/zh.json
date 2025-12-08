@@ -11,8 +11,8 @@
   "hero": {
     "title": "连接业务开发人员与企业",
     "subtitle": "BizBridge是一个B2B平台，将业务开发人员与寻找新客户的企业联系起来。",
-    "cta_start": "免费开始",
-    "cta_demo": "查看演示"
+    "cta_start": "立即开始",
+    "cta_demo": "了解如何运作"
   },
   "features": {
     "title": "为什么选择BizBridge？",
@@ -29,7 +29,7 @@
     "title": "如何运作？",
     "for_developers": "业务开发人员",
     "for_companies": "企业",
-    "step1_dev": "免费创建您的账户",
+    "step1_dev": "创建账户并激活订阅",
     "step2_dev": "发布您的线索并设定佣金",
     "step3_dev": "接收企业的提案",
     "step4_dev": "选择企业并签署合同",
@@ -40,12 +40,12 @@
   },
   "pricing": {
     "title": "简单透明的定价",
-    "free": "免费",
-    "free_desc": "适用于业务开发人员",
-    "free_feature1": "无限创建线索",
-    "free_feature2": "内置消息",
-    "free_feature3": "自动化合同",
-    "free_feature4": "自由佣金",
+    "apporteur": "€10 / 年",
+    "apporteur_desc": "适用于业务开发人员",
+    "apporteur_feature1": "无限创建线索",
+    "apporteur_feature2": "内置消息",
+    "apporteur_feature3": "自动化合同",
+    "apporteur_feature4": "自由佣金",
     "pro": "$20 / 年",
     "pro_desc": "适用于企业",
     "pro_feature1": "访问所有线索",
@@ -56,7 +56,7 @@
   "cta": {
     "title": "准备好发展您的业务了吗？",
     "subtitle": "加入BizBridge上成千上万的开发人员和企业。",
-    "button": "创建我的免费账户"
+    "button": "创建我的账户"
   },
   "footer": {
     "description": "连接业务开发人员和企业的B2B平台。",

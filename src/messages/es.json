@@ -11,8 +11,8 @@
   "hero": {
     "title": "Conecta desarrolladores de negocios y empresas",
     "subtitle": "BizBridge es la plataforma B2B que conecta desarrolladores de negocios con empresas que buscan nuevos clientes.",
-    "cta_start": "Empezar gratis",
-    "cta_demo": "Ver demo"
+    "cta_start": "Empezar ahora",
+    "cta_demo": "Ver cómo funciona"
   },
   "features": {
     "title": "¿Por qué elegir BizBridge?",
@@ -29,7 +29,7 @@
     "title": "¿Cómo funciona?",
     "for_developers": "Para Desarrolladores de Negocios",
     "for_companies": "Para Empresas",
-    "step1_dev": "Crea tu cuenta gratis",
+    "step1_dev": "Crea tu cuenta y activa tu suscripción",
     "step2_dev": "Publica tus leads con la comisión deseada",
     "step3_dev": "Recibe propuestas de empresas",
     "step4_dev": "Selecciona la empresa y firma el contrato",
@@ -40,12 +40,12 @@
   },
   "pricing": {
     "title": "Precios simples y transparentes",
-    "free": "Gratis",
-    "free_desc": "Para desarrolladores de negocios",
-    "free_feature1": "Creación ilimitada de leads",
-    "free_feature2": "Mensajería integrada",
-    "free_feature3": "Contratos automatizados",
-    "free_feature4": "Comisiones libres",
+    "apporteur": "10€ / año",
+    "apporteur_desc": "Para desarrolladores de negocios",
+    "apporteur_feature1": "Creación ilimitada de leads",
+    "apporteur_feature2": "Mensajería integrada",
+    "apporteur_feature3": "Contratos automatizados",
+    "apporteur_feature4": "Comisiones libres",
     "pro": "$20 / año",
     "pro_desc": "Para empresas",
     "pro_feature1": "Acceso a todos los leads",
@@ -56,7 +56,7 @@
   "cta": {
     "title": "¿Listo para hacer crecer tu negocio?",
     "subtitle": "Únete a miles de desarrolladores y empresas en BizBridge.",
-    "button": "Crear mi cuenta gratis"
+    "button": "Crear mi cuenta"
   },
   "footer": {
     "description": "La plataforma B2B que conecta desarrolladores de negocios y empresas.",
