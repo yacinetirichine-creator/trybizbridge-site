@@ -279,9 +279,9 @@ export default function HomePage() {
             <div>
               <h4 className="text-white font-semibold mb-4">{t('footer.links')}</h4>
               <ul className="space-y-2">
-                <li><a href="#" className="hover:text-emerald-400 transition">{t('footer.legal')}</a></li>
-                <li><a href="#" className="hover:text-emerald-400 transition">{t('footer.privacy')}</a></li>
-                <li><a href="#" className="hover:text-emerald-400 transition">{t('footer.terms')}</a></li>
+                <li><a href={`/${locale}/mentions-legales`} className="hover:text-emerald-400 transition">{t('footer.legal')}</a></li>
+                <li><a href={`/${locale}/confidentialite`} className="hover:text-emerald-400 transition">{t('footer.privacy')}</a></li>
+                <li><a href={`/${locale}/cgu`} className="hover:text-emerald-400 transition">{t('footer.terms')}</a></li>
               </ul>
             </div>
 
