@@ -6,32 +6,32 @@
     "contact": "Contacto",
     "login": "Iniciar sesión",
     "signup": "Registrarse",
-    "open_app": "Abrir la app"
+    "open_app": "Abrir aplicación"
   },
   "hero": {
-    "title": "Conecta desarrolladores de negocios y empresas",
-    "subtitle": "BizBridge es la plataforma B2B que conecta desarrolladores de negocios con empresas que buscan nuevos clientes.",
-    "cta_start": "Empezar ahora",
+    "title": "Conecta desarrolladores de negocio con empresas",
+    "subtitle": "BizBridge es la plataforma B2B que conecta a los desarrolladores de negocio con empresas que buscan nuevos clientes.",
+    "cta_start": "Comenzar ahora",
     "cta_demo": "Ver cómo funciona"
   },
   "features": {
     "title": "¿Por qué elegir BizBridge?",
-    "feature1_title": "Leads calificados",
+    "feature1_title": "Leads cualificados",
     "feature1_desc": "Recibe oportunidades verificadas y relevantes para tu sector.",
     "feature2_title": "Comisiones transparentes",
     "feature2_desc": "Define tus comisiones libremente. Pagos seguros entre partes.",
     "feature3_title": "Contratos automatizados",
     "feature3_desc": "Generación automática de contratos con firmas electrónicas integradas.",
     "feature4_title": "Mensajería integrada",
-    "feature4_desc": "Comunícate directamente con tus socios en la plataforma."
+    "feature4_desc": "Comunica directamente con tus socios en la plataforma."
   },
   "how": {
     "title": "¿Cómo funciona?",
-    "for_developers": "Para Desarrolladores de Negocios",
+    "for_developers": "Para Desarrolladores de negocio",
     "for_companies": "Para Empresas",
     "step1_dev": "Crea tu cuenta y activa tu suscripción",
     "step2_dev": "Publica tus leads con la comisión deseada",
-    "step3_dev": "Recibe propuestas de empresas",
+    "step3_dev": "Recibe propuestas de las empresas",
     "step4_dev": "Selecciona la empresa y firma el contrato",
     "step1_comp": "Regístrate y activa tu suscripción",
     "step2_comp": "Explora los leads disponibles",
@@ -40,26 +40,38 @@
   },
   "pricing": {
     "title": "Precios simples y transparentes",
-    "apporteur": "10€ / año",
-    "apporteur_desc": "Para desarrolladores de negocios",
-    "apporteur_feature1": "Creación ilimitada de leads",
-    "apporteur_feature2": "Mensajería integrada",
-    "apporteur_feature3": "Contratos automatizados",
-    "apporteur_feature4": "Comisiones libres",
-    "pro": "$20 / año",
-    "pro_desc": "Para empresas",
-    "pro_feature1": "Acceso a todos los leads",
-    "pro_feature2": "Respuestas ilimitadas",
-    "pro_feature3": "Mensajería integrada",
-    "pro_feature4": "Soporte prioritario"
+    "subtitle": "Sin costes ocultos, sin comisión sobre tus negocios. Solo una suscripción anual.",
+    "apporteur": "Desarrollador de negocio",
+    "apporteur_price": "10€",
+    "apporteur_period": "/ año",
+    "apporteur_desc": "Ideal para particulares y profesionales que desean monetizar su red",
+    "apporteur_feature1": "Creación de leads ilimitada",
+    "apporteur_feature2": "Define tus comisiones libremente",
+    "apporteur_feature3": "Mensajería segura",
+    "apporteur_feature4": "Contratos generados automáticamente",
+    "apporteur_feature5": "Pagos vía Stripe Connect",
+    "apporteur_feature6": "Soporte por email",
+    "pro": "Empresa",
+    "pro_price": "20€",
+    "pro_period": "/ año",
+    "pro_desc": "Para empresas en busca de nuevas oportunidades comerciales",
+    "pro_feature1": "Acceso a todos los leads disponibles",
+    "pro_feature2": "Respuestas ilimitadas a leads",
+    "pro_feature3": "Mensajería directa con desarrolladores",
+    "pro_feature4": "Contratos seguros",
+    "pro_feature5": "Filtros por sector y región",
+    "pro_feature6": "Soporte prioritario",
+    "commission_info": "Comisión plataforma: 0.5% solo al pagar comisiones",
+    "no_hidden_fees": "Sin costes ocultos",
+    "cancel_anytime": "Cancela cuando quieras"
   },
   "cta": {
     "title": "¿Listo para hacer crecer tu negocio?",
     "subtitle": "Únete a miles de desarrolladores y empresas en BizBridge.",
-    "button": "Crear mi cuenta"
+    "button": "Crear mi cuenta gratis"
   },
   "footer": {
-    "description": "La plataforma B2B que conecta desarrolladores de negocios y empresas.",
+    "description": "Plataforma B2B que conecta desarrolladores de negocio con empresas.",
     "links": "Enlaces útiles",
     "legal": "Aviso legal",
     "privacy": "Política de privacidad",
@@ -69,11 +81,11 @@
   },
   "contact": {
     "title": "Contáctanos",
-    "subtitle": "¿Tienes una pregunta? Nuestro equipo responde rápidamente.",
+    "subtitle": "¿Tienes alguna pregunta? Nuestro equipo responde rápidamente.",
     "name": "Tu nombre",
     "email": "Tu email",
     "message": "Tu mensaje",
     "send": "Enviar",
-    "or_chat": "O chatea con nuestro asistente IA"
+    "or_chat": "O habla con nuestro asistente IA"
   }
 }
