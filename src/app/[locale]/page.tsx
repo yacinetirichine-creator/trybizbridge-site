@@ -1,7 +1,6 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { Link } from '../../i18n/routing';
 import { motion } from 'framer-motion';
 import { 
   Users, 
@@ -10,7 +9,7 @@ import {
   MessageSquare,
   CheckCircle,
   ArrowRight,
-  Globe
+  Star
 } from 'lucide-react';
 import { useParams, useRouter } from 'next/navigation';
 import ChatBot from '../../components/ChatBot';
@@ -186,56 +185,136 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Pricing Section */}
+      {/* Pricing Section - NOUVEAU DESIGN */}
       <section id="pricing" className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16">
-            {t('pricing.title')}
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              {t('pricing.title')}
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              {t('pricing.subtitle')}
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {/* Apporteur Plan */}
-            <div className="p-8 bg-emerald-50 rounded-2xl border-2 border-emerald-200">
-              <h3 className="text-3xl font-bold text-emerald-600 mb-2">{t('pricing.apporteur')}</h3>
-              <p className="text-gray-600 mb-6">{t('pricing.apporteur_desc')}</p>
-              <div className="space-y-3 mb-8">
-                {[t('pricing.apporteur_feature1'), t('pricing.apporteur_feature2'), t('pricing.apporteur_feature3'), t('pricing.apporteur_feature4')].map((feature, index) => (
-                  <div key={index} className="flex items-center gap-2">
-                    <CheckCircle className="w-5 h-5 text-emerald-600" />
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="relative p-8 bg-gradient-to-br from-emerald-50 to-white rounded-3xl border-2 border-emerald-200 hover:border-emerald-400 transition-all hover:shadow-xl"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 bg-emerald-600 rounded-xl flex items-center justify-center">
+                  <Users className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">{t('pricing.apporteur')}</h3>
+              </div>
+              
+              <div className="flex items-baseline gap-1 mb-2">
+                <span className="text-5xl font-bold text-emerald-600">{t('pricing.apporteur_price')}</span>
+                <span className="text-gray-500 text-lg">{t('pricing.apporteur_period')}</span>
+              </div>
+              
+              <p className="text-gray-600 mb-8">{t('pricing.apporteur_desc')}</p>
+              
+              <div className="space-y-4 mb-8">
+                {[
+                  t('pricing.apporteur_feature1'),
+                  t('pricing.apporteur_feature2'),
+                  t('pricing.apporteur_feature3'),
+                  t('pricing.apporteur_feature4'),
+                  t('pricing.apporteur_feature5'),
+                  t('pricing.apporteur_feature6')
+                ].map((feature, index) => (
+                  <div key={index} className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-emerald-600 flex-shrink-0" />
                     <span className="text-gray-700">{feature}</span>
                   </div>
                 ))}
               </div>
+              
               <a 
                 href={appUrl}
                 target="_blank"
-                className="block w-full py-3 text-center bg-emerald-600 text-white rounded-xl font-semibold hover:bg-emerald-700 transition"
+                className="block w-full py-4 text-center bg-emerald-600 text-white rounded-xl font-semibold text-lg hover:bg-emerald-700 transition shadow-lg shadow-emerald-200"
               >
                 {t('hero.cta_start')}
               </a>
-            </div>
+            </motion.div>
 
-            {/* Pro Plan */}
-            <div className="p-8 bg-gray-900 rounded-2xl text-white relative overflow-hidden">
-              <div className="absolute top-4 right-4 bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1 rounded-full">
-                POPULAR
+            {/* Entreprise Plan */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="relative p-8 bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl text-white hover:shadow-2xl transition-all"
+            >
+              {/* Badge Popular */}
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                <div className="bg-gradient-to-r from-yellow-400 to-orange-400 text-gray-900 text-sm font-bold px-4 py-1 rounded-full flex items-center gap-1">
+                  <Star className="w-4 h-4" /> POPULAR
+                </div>
               </div>
-              <h3 className="text-3xl font-bold mb-2">{t('pricing.pro')}</h3>
-              <p className="text-gray-400 mb-6">{t('pricing.pro_desc')}</p>
-              <div className="space-y-3 mb-8">
-                {[t('pricing.pro_feature1'), t('pricing.pro_feature2'), t('pricing.pro_feature3'), t('pricing.pro_feature4')].map((feature, index) => (
-                  <div key={index} className="flex items-center gap-2">
-                    <CheckCircle className="w-5 h-5 text-emerald-400" />
+
+              <div className="flex items-center gap-3 mb-4 mt-2">
+                <div className="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center">
+                  <DollarSign className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold">{t('pricing.pro')}</h3>
+              </div>
+              
+              <div className="flex items-baseline gap-1 mb-2">
+                <span className="text-5xl font-bold text-emerald-400">{t('pricing.pro_price')}</span>
+                <span className="text-gray-400 text-lg">{t('pricing.pro_period')}</span>
+              </div>
+              
+              <p className="text-gray-400 mb-8">{t('pricing.pro_desc')}</p>
+              
+              <div className="space-y-4 mb-8">
+                {[
+                  t('pricing.pro_feature1'),
+                  t('pricing.pro_feature2'),
+                  t('pricing.pro_feature3'),
+                  t('pricing.pro_feature4'),
+                  t('pricing.pro_feature5'),
+                  t('pricing.pro_feature6')
+                ].map((feature, index) => (
+                  <div key={index} className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0" />
                     <span className="text-gray-300">{feature}</span>
                   </div>
                 ))}
               </div>
+              
               <a 
                 href={appUrl}
                 target="_blank"
-                className="block w-full py-3 text-center bg-emerald-600 text-white rounded-xl font-semibold hover:bg-emerald-700 transition"
+                className="block w-full py-4 text-center bg-emerald-500 text-white rounded-xl font-semibold text-lg hover:bg-emerald-400 transition shadow-lg"
               >
                 {t('hero.cta_start')}
               </a>
+            </motion.div>
+          </div>
+
+          {/* Info supplémentaire */}
+          <div className="mt-12 text-center">
+            <div className="inline-flex flex-wrap justify-center gap-6 text-sm text-gray-600">
+              <span className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-emerald-600" />
+                {t('pricing.commission_info')}
+              </span>
+              <span className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-emerald-600" />
+                {t('pricing.no_hidden_fees')}
+              </span>
+              <span className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-emerald-600" />
+                {t('pricing.cancel_anytime')}
+              </span>
             </div>
           </div>
         </div>
