@@ -1,24 +1,47 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
-import { 
-  Users, 
-  DollarSign, 
-  FileText, 
-  MessageSquare,
-  CheckCircle,
-  ArrowRight,
-  Star
-} from 'lucide-react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { useParams, useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react';
 import ChatBot from '../../components/ChatBot';
+import HeroSection from '../../components/HeroSection';
+import FeaturesSection from '../../components/FeaturesSection';
+import VideoPlaceholder from '../../components/VideoPlaceholder';
+import HowItWorksSection from '../../components/HowItWorksSection';
+import PricingSection from '../../components/PricingSection';
 
 export default function HomePage() {
   const t = useTranslations();
   const params = useParams();
   const router = useRouter();
   const locale = params.locale as string;
+  const [scrolled, setScrolled] = useState(false);
+
+  const { scrollY } = useScroll();
+  const navBackground = useTransform(
+    scrollY,
+    [0, 50],
+    ['rgba(255, 255, 255, 0)', 'rgba(255, 255, 255, 0.8)']
+  );
+  const navBackdrop = useTransform(
+    scrollY,
+    [0, 50],
+    ['blur(0px)', 'blur(12px)']
+  );
+  const navBorder = useTransform(
+    scrollY,
+    [0, 50],
+    ['rgba(0, 0, 0, 0)', 'rgba(0, 0, 0, 0.05)']
+  );
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const changeLanguage = (newLocale: string) => {
     router.push(`/${newLocale}`);
@@ -27,359 +50,96 @@ export default function HomePage() {
   const appUrl = 'https://app.trybizbridge.com';
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-emerald-50 to-white">
+    <div className="min-h-screen bg-white selection:bg-primary/20 selection:text-primary">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-emerald-100">
+      <motion.nav 
+        style={{ 
+          backgroundColor: navBackground,
+          backdropFilter: navBackdrop,
+          borderBottomColor: navBorder,
+          borderBottomWidth: 1,
+          borderBottomStyle: 'solid'
+        }}
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+          <div className="flex justify-between items-center h-20">
             {/* Logo */}
-            <div className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-emerald-600 to-emerald-400 rounded-xl flex items-center justify-center">
-                <span className="text-white font-bold text-lg">B</span>
+            <div className="flex items-center gap-3 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+              <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary-light rounded-xl flex items-center justify-center shadow-lg shadow-primary/20">
+                <span className="text-white font-bold text-xl">B</span>
               </div>
-              <span className="font-bold text-xl text-emerald-700">BizBridge</span>
+              <span className="font-bold text-xl text-gray-900 tracking-tight">BizBridge</span>
             </div>
 
             {/* Nav Links - Desktop */}
             <div className="hidden md:flex items-center gap-8">
-              <a href="#features" className="text-gray-600 hover:text-emerald-600 transition">{t('nav.home')}</a>
-              <a href="#how" className="text-gray-600 hover:text-emerald-600 transition">{t('nav.how_it_works')}</a>
-              <a href="#pricing" className="text-gray-600 hover:text-emerald-600 transition">{t('nav.pricing')}</a>
-              <a href="#contact" className="text-gray-600 hover:text-emerald-600 transition">{t('nav.contact')}</a>
+              {['features', 'how', 'pricing', 'contact'].map((item) => (
+                <a 
+                  key={item}
+                  href={`#${item}`} 
+                  className="text-sm font-medium text-gray-600 hover:text-primary transition-colors relative group"
+                >
+                  {t(`nav.${item === 'how' ? 'how_it_works' : item}`)}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
+                </a>
+              ))}
             </div>
 
             {/* Right Side */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-4">
               {/* Language Selector */}
-              <div className="flex gap-1">
-                <button onClick={() => changeLanguage('fr')} className={`px-2 py-1 rounded text-sm ${locale === 'fr' ? 'bg-emerald-600 text-white' : 'bg-gray-100'}`}>🇫🇷</button>
-                <button onClick={() => changeLanguage('en')} className={`px-2 py-1 rounded text-sm ${locale === 'en' ? 'bg-emerald-600 text-white' : 'bg-gray-100'}`}>🇬🇧</button>
-                <button onClick={() => changeLanguage('ar')} className={`px-2 py-1 rounded text-sm ${locale === 'ar' ? 'bg-emerald-600 text-white' : 'bg-gray-100'}`}>🇸🇦</button>
-                <button onClick={() => changeLanguage('es')} className={`px-2 py-1 rounded text-sm ${locale === 'es' ? 'bg-emerald-600 text-white' : 'bg-gray-100'}`}>🇪🇸</button>
-                <button onClick={() => changeLanguage('zh')} className={`px-2 py-1 rounded text-sm ${locale === 'zh' ? 'bg-emerald-600 text-white' : 'bg-gray-100'}`}>🇨🇳</button>
+              <div className="flex gap-1 bg-gray-100/50 p-1 rounded-lg border border-gray-200/50">
+                {['fr', 'en', 'ar', 'es', 'zh'].map((lang) => (
+                  <button 
+                    key={lang}
+                    onClick={() => changeLanguage(lang)} 
+                    className={`w-8 h-8 rounded-md text-sm flex items-center justify-center transition-all ${
+                      locale === lang 
+                        ? 'bg-white text-gray-900 shadow-sm font-medium' 
+                        : 'text-gray-400 hover:text-gray-600 hover:bg-gray-200/50'
+                    }`}
+                  >
+                    {lang === 'fr' ? '🇫🇷' : lang === 'en' ? '🇬🇧' : lang === 'ar' ? '🇸🇦' : lang === 'es' ? '🇪🇸' : '🇨🇳'}
+                  </button>
+                ))}
               </div>
 
               <a 
                 href={appUrl}
                 target="_blank"
-                className="hidden sm:inline-flex px-4 py-2 bg-emerald-600 text-white rounded-lg font-medium hover:bg-emerald-700 transition"
+                className="hidden sm:inline-flex px-5 py-2.5 bg-gray-900 text-white rounded-lg font-medium hover:bg-gray-800 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
               >
                 {t('nav.open_app')}
               </a>
             </div>
           </div>
         </div>
-      </nav>
+      </motion.nav>
 
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4">
-        <div className="max-w-7xl mx-auto text-center">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-6xl font-bold text-gray-900 mb-6"
-          >
-            {t('hero.title')}
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-gray-600 mb-10 max-w-3xl mx-auto"
-          >
-            {t('hero.subtitle')}
-          </motion.p>
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <a 
-              href={appUrl}
-              target="_blank"
-              className="px-8 py-4 bg-emerald-600 text-white rounded-xl font-semibold text-lg hover:bg-emerald-700 transition shadow-lg shadow-emerald-200"
-            >
-              {t('hero.cta_start')} <ArrowRight className="inline ml-2 w-5 h-5" />
-            </a>
-            <a 
-              href="#how"
-              className="px-8 py-4 bg-white text-emerald-600 rounded-xl font-semibold text-lg hover:bg-emerald-50 transition border-2 border-emerald-200"
-            >
-              {t('hero.cta_demo')}
-            </a>
-          </motion.div>
-        </div>
-      </section>
+      <main>
+        <HeroSection t={t} appUrl={appUrl} />
+        
+        <VideoPlaceholder />
+        
+        <FeaturesSection t={t} />
+        
+        <HowItWorksSection t={t} />
+        
+        <PricingSection t={t} appUrl={appUrl} />
 
-      {/* Features Section */}
-      <section id="features" className="py-20 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16">
-            {t('features.title')}
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { icon: Users, title: t('features.feature1_title'), desc: t('features.feature1_desc') },
-              { icon: DollarSign, title: t('features.feature2_title'), desc: t('features.feature2_desc') },
-              { icon: FileText, title: t('features.feature3_title'), desc: t('features.feature3_desc') },
-              { icon: MessageSquare, title: t('features.feature4_title'), desc: t('features.feature4_desc') },
-            ].map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="p-6 bg-emerald-50 rounded-2xl hover:shadow-lg transition"
-              >
-                <div className="w-12 h-12 bg-emerald-600 rounded-xl flex items-center justify-center mb-4">
-                  <feature.icon className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h3>
-                <p className="text-gray-600">{feature.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* How it Works Section */}
-      <section id="how" className="py-20 px-4 bg-emerald-50">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16">
-            {t('how.title')}
-          </h2>
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* For Developers */}
-            <div className="bg-white p-8 rounded-2xl shadow-lg">
-              <h3 className="text-2xl font-bold text-emerald-600 mb-6">{t('how.for_developers')}</h3>
-              <div className="space-y-4">
-                {[t('how.step1_dev'), t('how.step2_dev'), t('how.step3_dev'), t('how.step4_dev')].map((step, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <span className="text-emerald-600 font-semibold">{index + 1}</span>
-                    </div>
-                    <p className="text-gray-700 pt-1">{step}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* For Companies */}
-            <div className="bg-white p-8 rounded-2xl shadow-lg">
-              <h3 className="text-2xl font-bold text-emerald-600 mb-6">{t('how.for_companies')}</h3>
-              <div className="space-y-4">
-                {[t('how.step1_comp'), t('how.step2_comp'), t('how.step3_comp'), t('how.step4_comp')].map((step, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <span className="text-emerald-600 font-semibold">{index + 1}</span>
-                    </div>
-                    <p className="text-gray-700 pt-1">{step}</p>
-                  </div>
-                ))}
-              </div>
+        {/* Contact Section (Simple Footer for now) */}
+        <section id="contact" className="py-20 bg-gray-900 text-white">
+          <div className="max-w-7xl mx-auto px-4 text-center">
+            <h2 className="text-3xl font-bold mb-8">{t('nav.contact')}</h2>
+            <p className="text-gray-400 mb-8">contact@trybizbridge.com</p>
+            <div className="text-sm text-gray-600">
+              © {new Date().getFullYear()} BizBridge. All rights reserved.
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </main>
 
-      {/* Pricing Section - NOUVEAU DESIGN */}
-      <section id="pricing" className="py-20 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              {t('pricing.title')}
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              {t('pricing.subtitle')}
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {/* Apporteur Plan */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="relative p-8 bg-gradient-to-br from-emerald-50 to-white rounded-3xl border-2 border-emerald-200 hover:border-emerald-400 transition-all hover:shadow-xl"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-emerald-600 rounded-xl flex items-center justify-center">
-                  <Users className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900">{t('pricing.apporteur')}</h3>
-              </div>
-              
-              <div className="flex items-baseline gap-1 mb-2">
-                <span className="text-5xl font-bold text-emerald-600">{t('pricing.apporteur_price')}</span>
-                <span className="text-gray-500 text-lg">{t('pricing.apporteur_period')}</span>
-              </div>
-              
-              <p className="text-gray-600 mb-8">{t('pricing.apporteur_desc')}</p>
-              
-              <div className="space-y-4 mb-8">
-                {[
-                  t('pricing.apporteur_feature1'),
-                  t('pricing.apporteur_feature2'),
-                  t('pricing.apporteur_feature3'),
-                  t('pricing.apporteur_feature4'),
-                  t('pricing.apporteur_feature5'),
-                  t('pricing.apporteur_feature6')
-                ].map((feature, index) => (
-                  <div key={index} className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-emerald-600 flex-shrink-0" />
-                    <span className="text-gray-700">{feature}</span>
-                  </div>
-                ))}
-              </div>
-              
-              <a 
-                href={appUrl}
-                target="_blank"
-                className="block w-full py-4 text-center bg-emerald-600 text-white rounded-xl font-semibold text-lg hover:bg-emerald-700 transition shadow-lg shadow-emerald-200"
-              >
-                {t('hero.cta_start')}
-              </a>
-            </motion.div>
-
-            {/* Entreprise Plan */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              viewport={{ once: true }}
-              className="relative p-8 bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl text-white hover:shadow-2xl transition-all"
-            >
-              {/* Badge Popular */}
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <div className="bg-gradient-to-r from-yellow-400 to-orange-400 text-gray-900 text-sm font-bold px-4 py-1 rounded-full flex items-center gap-1">
-                  <Star className="w-4 h-4" /> POPULAR
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3 mb-4 mt-2">
-                <div className="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center">
-                  <DollarSign className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold">{t('pricing.pro')}</h3>
-              </div>
-              
-              <div className="flex items-baseline gap-1 mb-2">
-                <span className="text-5xl font-bold text-emerald-400">{t('pricing.pro_price')}</span>
-                <span className="text-gray-400 text-lg">{t('pricing.pro_period')}</span>
-              </div>
-              
-              <p className="text-gray-400 mb-8">{t('pricing.pro_desc')}</p>
-              
-              <div className="space-y-4 mb-8">
-                {[
-                  t('pricing.pro_feature1'),
-                  t('pricing.pro_feature2'),
-                  t('pricing.pro_feature3'),
-                  t('pricing.pro_feature4'),
-                  t('pricing.pro_feature5'),
-                  t('pricing.pro_feature6')
-                ].map((feature, index) => (
-                  <div key={index} className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0" />
-                    <span className="text-gray-300">{feature}</span>
-                  </div>
-                ))}
-              </div>
-              
-              <a 
-                href={appUrl}
-                target="_blank"
-                className="block w-full py-4 text-center bg-emerald-500 text-white rounded-xl font-semibold text-lg hover:bg-emerald-400 transition shadow-lg"
-              >
-                {t('hero.cta_start')}
-              </a>
-            </motion.div>
-          </div>
-
-          {/* Info supplémentaire */}
-          <div className="mt-12 text-center">
-            <div className="inline-flex flex-wrap justify-center gap-6 text-sm text-gray-600">
-              <span className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-emerald-600" />
-                {t('pricing.commission_info')}
-              </span>
-              <span className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-emerald-600" />
-                {t('pricing.no_hidden_fees')}
-              </span>
-              <span className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-emerald-600" />
-                {t('pricing.cancel_anytime')}
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-emerald-600 to-emerald-500">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            {t('cta.title')}
-          </h2>
-          <p className="text-emerald-100 text-lg mb-8">
-            {t('cta.subtitle')}
-          </p>
-          <a 
-            href={appUrl}
-            target="_blank"
-            className="inline-flex px-8 py-4 bg-white text-emerald-600 rounded-xl font-semibold text-lg hover:bg-emerald-50 transition shadow-lg"
-          >
-            {t('cta.button')} <ArrowRight className="ml-2 w-5 h-5" />
-          </a>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer id="contact" className="py-12 px-4 bg-gray-900 text-gray-400">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
-            {/* Logo & Description */}
-            <div className="md:col-span-2">
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-10 h-10 bg-gradient-to-br from-emerald-600 to-emerald-400 rounded-xl flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">B</span>
-                </div>
-                <span className="font-bold text-xl text-white">BizBridge</span>
-              </div>
-              <p className="text-gray-400">{t('footer.description')}</p>
-            </div>
-
-            {/* Links */}
-            <div>
-              <h4 className="text-white font-semibold mb-4">{t('footer.links')}</h4>
-              <ul className="space-y-2">
-                <li><a href={`/${locale}/mentions-legales`} className="hover:text-emerald-400 transition">{t('footer.legal')}</a></li>
-                <li><a href={`/${locale}/confidentialite`} className="hover:text-emerald-400 transition">{t('footer.privacy')}</a></li>
-                <li><a href={`/${locale}/cgu`} className="hover:text-emerald-400 transition">{t('footer.terms')}</a></li>
-              </ul>
-            </div>
-
-            {/* Contact */}
-            <div>
-              <h4 className="text-white font-semibold mb-4">{t('footer.contact')}</h4>
-              <ul className="space-y-2">
-                <li>contact@trybizbridge.com</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="border-t border-gray-800 pt-8 text-center">
-            <p>&copy; {new Date().getFullYear()} BizBridge. {t('footer.rights')}</p>
-          </div>
-        </div>
-      </footer>
-
-      {/* ChatBot */}
       <ChatBot locale={locale} />
     </div>
   );
