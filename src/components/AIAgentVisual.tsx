@@ -112,9 +112,4 @@ export default function AIAgentVisual() {
       </svg>
     </div>
   );
-}        animate={{ top: ['0%', '100%', '0%'] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-      />
-    </div>
-  );
 }
