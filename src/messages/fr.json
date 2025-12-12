@@ -9,6 +9,8 @@
     "open_app": "Ouvrir l'application"
   },
   "hero": {
+    "badge": "La plateforme #1 pour apporteurs d'affaires",
+    "highlight": "Simplifié.",
     "title": "Connectez apporteurs d'affaires et entreprises",
     "subtitle": "BizBridge est la plateforme B2B qui met en relation les apporteurs d'affaires avec les entreprises à la recherche de nouveaux clients.",
     "cta_start": "Commencer maintenant",
