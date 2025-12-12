@@ -91,7 +91,6 @@ export default function AIAgentVisual() {
           initial={{ x: 0, y: 0, opacity: 0 }}
           animate={{
             x: Math.cos(i * 60 * (Math.PI / 180)) * 200,
-            y: Math.sin(i * 60 * (Math.PI / 180)) * 200,
             opacity: 1,
             y: [
               Math.sin(i * 60 * (Math.PI / 180)) * 200,
