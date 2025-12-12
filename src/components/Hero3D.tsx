@@ -1,44 +1,71 @@
 'use client';
 
-import Spline from '@splinetool/react-spline';
-import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 export default function Hero3D() {
-  const [loading, setLoading] = useState(true);
-
   return (
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-12">
-      <div className="relative w-full h-[500px] md:h-[600px] bg-gradient-to-b from-gray-50 to-white rounded-[2rem] overflow-hidden border border-gray-100 shadow-2xl shadow-primary/5">
+      <div className="relative w-full h-[500px] md:h-[600px] bg-gradient-to-b from-gray-900 to-gray-800 rounded-[2rem] overflow-hidden border border-gray-700 shadow-2xl shadow-primary/20 flex items-center justify-center">
         
-        {/* Loading State */}
-        {loading && (
-          <div className="absolute inset-0 flex items-center justify-center bg-gray-50 z-10">
-            <div className="flex flex-col items-center gap-4">
-              <div className="w-12 h-12 border-4 border-primary/20 border-t-primary rounded-full animate-spin" />
-              <p className="text-gray-400 text-sm font-medium">Chargement de l'expérience 3D...</p>
-            </div>
-          </div>
-        )}
+        {/* Background Grid */}
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
+        <div className="absolute inset-0 bg-grid-white/[0.05] bg-[length:30px_30px]"></div>
 
-        <div className="w-full h-full">
-          {/* 
-             NOTE POUR L'UTILISATEUR:
-             Pour changer l'animation 3D :
-             1. Allez sur https://spline.design/
-             2. Créez ou choisissez une scène
-             3. Cliquez sur "Export" -> "Viewer" -> Copiez l'URL .splinecode
-             4. Remplacez l'URL ci-dessous
-          */}
-          <Spline 
-            onLoad={() => setLoading(false)}
-            scene="https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode" 
-          />
+        {/* Animated Network Nodes */}
+        <div className="absolute inset-0 overflow-hidden">
+          {[...Array(20)].map((_, i) => (
+            <Node key={i} index={i} />
+          ))}
+        </div>
+
+        {/* Central Message */}
+        <div className="relative z-10 text-center p-8 backdrop-blur-sm bg-gray-900/30 rounded-3xl border border-white/10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Connectez votre <span className="text-primary-light">Business</span>
+            </h3>
+            <p className="text-gray-300 text-lg max-w-md mx-auto">
+              Une plateforme unique pour créer des opportunités illimitées.
+            </p>
+          </motion.div>
         </div>
         
-        {/* Decorative Elements */}
-        <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-white/50 to-transparent pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white/50 to-transparent pointer-events-none" />
       </div>
     </div>
+  );
+}
+
+function Node({ index }: { index: number }) {
+  const randomX = Math.random() * 100;
+  const randomY = Math.random() * 100;
+  const duration = 10 + Math.random() * 20;
+
+  return (
+    <motion.div
+      className="absolute w-3 h-3 bg-primary rounded-full shadow-[0_0_15px_rgba(47,184,154,0.6)]"
+      style={{
+        left: `${randomX}%`,
+        top: `${randomY}%`,
+      }}
+      animate={{
+        x: [0, Math.random() * 100 - 50, 0],
+        y: [0, Math.random() * 100 - 50, 0],
+        opacity: [0.3, 0.8, 0.3],
+        scale: [1, 1.5, 1],
+      }}
+      transition={{
+        duration: duration,
+        repeat: Infinity,
+        ease: "linear",
+      }}
+    >
+      {/* Connection Lines (Simulated) */}
+      <div className="absolute top-1/2 left-1/2 w-[200px] h-[1px] bg-gradient-to-r from-primary/50 to-transparent origin-left transform -rotate-45 opacity-20" />
+      <div className="absolute top-1/2 left-1/2 w-[150px] h-[1px] bg-gradient-to-r from-primary/30 to-transparent origin-left transform rotate-12 opacity-20" />
+    </motion.div>
   );
 }
