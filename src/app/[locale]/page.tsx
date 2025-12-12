@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 import ChatBot from '../../components/ChatBot';
 import HeroSection from '../../components/HeroSection';
 import FeaturesSection from '../../components/FeaturesSection';
-import VideoPlaceholder from '../../components/VideoPlaceholder';
+import Hero3D from '../../components/Hero3D';
 import HowItWorksSection from '../../components/HowItWorksSection';
 import PricingSection from '../../components/PricingSection';
 
@@ -120,7 +120,7 @@ export default function HomePage() {
       <main>
         <HeroSection t={t} appUrl={appUrl} />
         
-        <VideoPlaceholder />
+        <Hero3D />
         
         <FeaturesSection t={t} />
         

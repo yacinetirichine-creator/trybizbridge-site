@@ -20,44 +20,97 @@ const item = {
 
 export default function FeaturesSection({ t }: { t: any }) {
   const features = [
-    { icon: Users, title: t('features.feature1_title'), desc: t('features.feature1_desc'), color: 'bg-blue-500' },
-    { icon: DollarSign, title: t('features.feature2_title'), desc: t('features.feature2_desc'), color: 'bg-green-500' },
-    { icon: FileText, title: t('features.feature3_title'), desc: t('features.feature3_desc'), color: 'bg-purple-500' },
-    { icon: MessageSquare, title: t('features.feature4_title'), desc: t('features.feature4_desc'), color: 'bg-orange-500' },
-    { icon: Shield, title: "Sécurité Maximale", desc: "Vos données sont chiffrées et protégées selon les normes RGPD.", color: 'bg-red-500' },
-    { icon: Zap, title: "Matching IA", desc: "Notre algorithme connecte instantanément les bons profils.", color: 'bg-yellow-500' },
-    { icon: Globe, title: "Multi-langues", desc: "Interface disponible en 5 langues pour une portée internationale.", color: 'bg-cyan-500' },
-    { icon: BarChart, title: "Analytics", desc: "Suivez vos performances en temps réel avec des tableaux de bord détaillés.", color: 'bg-indigo-500' },
+    { 
+      icon: Users, 
+      title: t('features.feature1_title'), 
+      desc: t('features.feature1_desc'), 
+      gradient: 'from-blue-500 to-cyan-400',
+      shadow: 'shadow-blue-500/20'
+    },
+    { 
+      icon: DollarSign, 
+      title: t('features.feature2_title'), 
+      desc: t('features.feature2_desc'), 
+      gradient: 'from-emerald-500 to-teal-400',
+      shadow: 'shadow-emerald-500/20'
+    },
+    { 
+      icon: FileText, 
+      title: t('features.feature3_title'), 
+      desc: t('features.feature3_desc'), 
+      gradient: 'from-violet-500 to-purple-400',
+      shadow: 'shadow-violet-500/20'
+    },
+    { 
+      icon: MessageSquare, 
+      title: t('features.feature4_title'), 
+      desc: t('features.feature4_desc'), 
+      gradient: 'from-orange-500 to-amber-400',
+      shadow: 'shadow-orange-500/20'
+    },
+    { 
+      icon: Shield, 
+      title: "Sécurité Maximale", 
+      desc: "Vos données sont chiffrées et protégées selon les normes RGPD.", 
+      gradient: 'from-red-500 to-rose-400',
+      shadow: 'shadow-red-500/20'
+    },
+    { 
+      icon: Zap, 
+      title: "Matching IA", 
+      desc: "Notre algorithme connecte instantanément les bons profils.", 
+      gradient: 'from-yellow-400 to-orange-400',
+      shadow: 'shadow-yellow-500/20'
+    },
+    { 
+      icon: Globe, 
+      title: "Multi-langues", 
+      desc: "Interface disponible en 5 langues pour une portée internationale.", 
+      gradient: 'from-cyan-500 to-blue-400',
+      shadow: 'shadow-cyan-500/20'
+    },
+    { 
+      icon: BarChart, 
+      title: "Analytics", 
+      desc: "Suivez vos performances en temps réel avec des tableaux de bord détaillés.", 
+      gradient: 'from-indigo-500 to-blue-500',
+      shadow: 'shadow-indigo-500/20'
+    },
   ];
 
   return (
-    <section id="features" className="py-24 px-4 bg-white relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-full bg-grid-pattern opacity-50 pointer-events-none" />
+    <section id="features" className="py-24 px-4 bg-gray-50/50 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent opacity-50 pointer-events-none" />
       
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20">
-          <motion.span 
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className="text-primary font-semibold tracking-wider uppercase text-sm"
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            className="inline-block mb-4 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20"
           >
-            Fonctionnalités
-          </motion.span>
+            <span className="text-primary font-semibold tracking-wide uppercase text-xs">
+              Fonctionnalités Clés
+            </span>
+          </motion.div>
+          
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-bold text-gray-900 mt-2 mb-6"
+            className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight"
           >
             {t('features.title')}
           </motion.h2>
+          
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-xl text-gray-600 max-w-2xl mx-auto"
+            className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed"
           >
-            Tout ce dont vous avez besoin pour gérer vos affaires, au même endroit.
+            Une suite complète d'outils conçus pour accélérer votre croissance et simplifier vos connexions.
           </motion.p>
         </div>
 
@@ -65,21 +118,32 @@ export default function FeaturesSection({ t }: { t: any }) {
           variants={container}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {features.map((feature, index) => (
             <motion.div
               key={index}
               variants={item}
-              whileHover={{ y: -10, transition: { duration: 0.2 } }}
-              className="p-8 bg-white rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl transition-all group"
+              whileHover={{ y: -5 }}
+              className="group relative p-8 bg-white rounded-3xl border border-gray-100 shadow-lg shadow-gray-200/50 hover:shadow-xl hover:shadow-gray-200/80 transition-all duration-300 overflow-hidden"
             >
-              <div className={`w-14 h-14 ${feature.color} rounded-2xl flex items-center justify-center mb-6 text-white shadow-md group-hover:scale-110 transition-transform duration-300`}>
-                <feature.icon className="w-7 h-7" />
+              {/* Hover Gradient Background */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
+              
+              <div className="relative z-10">
+                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-6 text-white ${feature.shadow} group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
+                  <feature.icon className="w-7 h-7" strokeWidth={2} />
+                </div>
+                
+                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors">
+                  {feature.title}
+                </h3>
+                
+                <p className="text-gray-500 leading-relaxed text-sm font-medium">
+                  {feature.desc}
+                </p>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
-              <p className="text-gray-600 leading-relaxed">{feature.desc}</p>
             </motion.div>
           ))}
         </motion.div>
