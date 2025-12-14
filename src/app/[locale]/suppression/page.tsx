@@ -41,12 +41,40 @@ export default function Suppression() {
           </section>
           <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Faire une demande de suppression</h2>
-            <p className="text-gray-600 leading-relaxed mb-6">Pour demander la suppression de vos données, envoyez-nous un email avec les informations suivantes :</p>
-            <div className="bg-emerald-50 rounded-xl p-6 space-y-4">
-              <h3 className="font-semibold text-emerald-800">📧 Envoyez un email à :</h3>
-              <a href="mailto:contact@trybizbridge.com?subject=Demande%20de%20suppression%20de%20donnees%20-%20BizBridge" className="inline-block px-6 py-3 bg-emerald-600 text-white font-semibold rounded-lg hover:bg-emerald-700 transition-colors">contact@trybizbridge.com</a>
+            <p className="text-gray-600 leading-relaxed mb-6">Remplissez le formulaire ci-dessous pour demander la suppression de vos données :</p>
+            <div className="bg-emerald-50 rounded-xl p-6">
+              <form action="https://api.web3forms.com/submit" method="POST" className="space-y-4">
+                <input type="hidden" name="access_key" value="7b43b213-33bb-4b93-8ce6-f79ee54291e8" />
+                <input type="hidden" name="subject" value="Demande de suppression de compte BizBridge" />
+                <input type="hidden" name="from_name" value="Suppression de compte" />
+                
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">Nom complet *</label>
+                  <input type="text" id="name" name="name" required className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500" placeholder="Jean Dupont" />
+                </div>
+                
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">Email du compte *</label>
+                  <input type="email" id="email" name="email" required className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500" placeholder="jean.dupont@example.com" />
+                </div>
+                
+                <div>
+                  <label htmlFor="reason" className="block text-sm font-medium text-gray-700 mb-2">Raison (optionnel)</label>
+                  <textarea id="reason" name="message" rows={3} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500" placeholder="Pourquoi souhaitez-vous supprimer votre compte ?"></textarea>
+                </div>
+                
+                <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+                  <p className="text-sm text-amber-800"><strong>⚠️ Attention :</strong> Cette action est irréversible. Toutes vos données seront supprimées définitivement sous 30 jours.</p>
+                </div>
+                
+                <button type="submit" className="w-full px-6 py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition-colors">
+                  Demander la suppression de mon compte
+                </button>
+              </form>
+              
               <div className="mt-6 pt-6 border-t border-emerald-200">
-                <h4 className="font-medium text-emerald-800 mb-3">Informations à inclure dans votre email :</h4>
+                <p className="text-sm text-emerald-700"><strong>Ou envoyez un email à :</strong> <a href="mailto:contact@trybizbridge.com" className="underline">contact@trybizbridge.com</a></p>
+                <h4 className="font-medium text-emerald-800 mb-3 mt-4">Informations à inclure dans votre email :</h4>
                 <ul className="space-y-2 text-emerald-700">
                   <li>• Votre nom complet</li>
                   <li>• L adresse email associée à votre compte BizBridge</li>
